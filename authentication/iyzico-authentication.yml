@@ -1,0 +1,37 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.iyzico.com/en/getting-started/preliminaries/authentication/hmacsha256-auth
+docs: https://docs.iyzico.com/en/getting-started/preliminaries/authentication
+summary:
+  types: [custom-hmac]
+  scheme: IYZWSv2
+  credentials: [apiKey, secretKey]
+  transport: header
+  note: >-
+    No OpenAPI securitySchemes captured (no machine-readable spec harvested); the
+    profile below is transcribed from the published HMACSHA256 authentication docs.
+schemes:
+- name: IYZWSv2
+  type: apiKey-hmac
+  in: header
+  header: Authorization
+  format: 'IYZWSv2 <base64EncodedAuthorization>'
+  algorithm: HMACSHA256
+  description: >-
+    iyzico authentication aligns with Basic Auth principles but signs each request.
+    The signature is HMACSHA256(randomKey + uri.path + request.body, secretKey);
+    the authorization string
+    "apiKey:<apiKey>&randomKey:<randomKey>&signature:<encryptedData>" is Base64
+    encoded and sent as "IYZWSv2 <base64EncodedAuthorization>" in the Authorization
+    header.
+  components:
+    apiKey: Unique API key assigned to the merchant account (sandbox keys are prefixed "sandbox-").
+    secretKey: Secret key paired with the apiKey; never transmitted, used to sign.
+    randomKey: Per-request nonce (formerly the x-iyzi-rnd random key).
+  additional_headers:
+  - name: x-iyzi-rnd
+    description: Randomly generated per-call value; historically the SHA1 random key.
+  legacy:
+  - name: IYZWS (v1)
+    status: deprecated
+    note: Earlier SHA1-based authorization scheme, superseded by IYZWSv2 (HMACSHA256).
