@@ -1,0 +1,56 @@
+generated: '2026-07-19'
+method: searched
+source: >-
+  https://docs.iyzico.com/en/getting-started/preliminaries/sandbox ,
+  https://docs.iyzico.com/en/getting-started/preliminaries/live-vs-sandbox ,
+  https://docs.iyzico.com/en/add-ons/test-cards
+environments:
+  live:
+    base_url: https://api.iyzipay.com
+    dashboard: https://merchant.iyzipay.com/auth/login
+  sandbox:
+    base_url: https://sandbox-api.iyzipay.com
+    dashboard: https://sandbox-merchant.iyzipay.com/auth/login
+    register: https://sandbox-merchant.iyzipay.com/auth/register
+key_separation:
+  note: >-
+    Live and sandbox credentials are entirely different. Sandbox apiKey and
+    secretKey are prefixed with "sandbox-". Each account has a unique merchantId
+    plus an API KEY / SECRET KEY pair (Settings > Merchant Settings > API Keys).
+  sandbox_prefix: 'sandbox-'
+static_values:
+  otp: '123456'   # Sandbox OTP is statically 123456
+test_cards:
+  note: >-
+    Live cards are not supported in sandbox. Expiry (SKT) and CVV may be random
+    but must be valid format and a future expiry date.
+  successful:
+  - {card: '5890040000000016', bank: Akbank, scheme: MasterCard, type: Debit}
+  - {card: '5526080000000006', bank: Akbank, scheme: MasterCard, type: Credit}
+  - {card: '9792072000017956', bank: Akbank, scheme: Troy, type: Credit}
+  - {card: '4766620000000001', bank: Denizbank, scheme: Visa, type: Debit}
+  - {card: '4603450000000000', bank: Denizbank, scheme: Visa, type: Credit}
+  - {card: '5170410000000004', bank: Garanti, scheme: MasterCard, type: Debit}
+  - {card: '374427000000003', bank: Garanti, scheme: American Express, type: Credit}
+  - {card: '4543590000000006', bank: Is Bankasi, scheme: Visa, type: Credit}
+  - {card: '5168880000000002', bank: Yapi Kredi, scheme: MasterCard, type: Debit}
+  foreign:
+  - {card: '5400010000000004', country: Non-Turkish, type: Credit}
+  - {card: '4054180000000007', country: Non-Turkish, type: Debit}
+  error_generators:
+  - {card: '5406670000000009', result: Success but cannot be cancelled, refunded or post-authed}
+  - {card: '4111111111111129', result: Not sufficient funds}
+  - {card: '4129111111111111', result: Do not honour}
+  - {card: '4128111111111112', result: Invalid transaction}
+  - {card: '4127111111111113', result: Lost card}
+  - {card: '4126111111111114', result: Stolen card}
+  - {card: '4125111111111115', result: Expired card}
+  - {card: '4124111111111116', result: Invalid cvc2}
+  - {card: '4123111111111117', result: Not permitted to card holder}
+  - {card: '4122111111111118', result: Not permitted to terminal}
+  - {card: '4121111111111119', result: Fraud suspect}
+  - {card: '4120111111111110', result: Pickup card}
+  - {card: '4130111111111118', result: General error}
+  - {card: '4131111111111117', result: Success but mdStatus is 0}
+  - {card: '4141111111111115', result: Success but mdStatus is 4}
+  - {card: '4151111111111112', result: 3dsecure initialize failed}

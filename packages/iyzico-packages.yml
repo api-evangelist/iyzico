@@ -1,0 +1,69 @@
+generated: '2026-07-19'
+method: searched
+source: >-
+  Public package registries (npm, PyPI, Packagist, RubyGems, Maven Central,
+  NuGet) and the iyzico GitHub organization https://github.com/iyzico
+packages:
+- language: php
+  registry: packagist
+  name: iyzico/iyzipay-php
+  url: https://packagist.org/packages/iyzico/iyzipay-php
+  install: composer require iyzico/iyzipay-php
+  repo: https://github.com/iyzico/iyzipay-php
+  official: true
+- language: python
+  registry: pypi
+  name: iyzipay
+  url: https://pypi.org/project/iyzipay/
+  install: pip install iyzipay
+  repo: https://github.com/iyzico/iyzipay-python
+  official: true
+- language: javascript
+  registry: npm
+  name: iyzipay
+  url: https://www.npmjs.com/package/iyzipay
+  install: npm install iyzipay
+  repo: https://github.com/iyzico/iyzipay-node
+  official: true
+- language: java
+  registry: maven
+  name: com.iyzipay:iyzipay-java
+  url: https://search.maven.org/artifact/com.iyzipay/iyzipay-java
+  install: '<dependency><groupId>com.iyzipay</groupId><artifactId>iyzipay-java</artifactId></dependency>'
+  repo: https://github.com/iyzico/iyzipay-java
+  official: true
+- language: ruby
+  registry: rubygems
+  name: iyzipay
+  url: https://rubygems.org/gems/iyzipay
+  install: gem install iyzipay
+  repo: https://github.com/iyzico/iyzipay-ruby
+  official: true
+- language: csharp
+  registry: nuget
+  name: Iyzipay
+  url: https://www.nuget.org/packages/Iyzipay
+  install: dotnet add package Iyzipay
+  repo: https://github.com/iyzico/iyzipay-dotnet
+  official: true
+plugins:
+- name: iyzipay-woocommerce
+  platform: WooCommerce
+  repo: https://github.com/iyzico/iyzipay-woocommerce
+  official: true
+- name: iyzipay-magento2
+  platform: Magento 2
+  repo: https://github.com/iyzico/iyzipay-magento2
+  official: true
+- name: iyzipay-prestashop
+  platform: PrestaShop
+  repo: https://github.com/iyzico/iyzipay-prestashop
+  official: true
+- name: iyzipay-opencart
+  platform: OpenCart
+  repo: https://github.com/iyzico/iyzipay-opencart
+  official: true
+- name: iyzipay-for-nopcommerce
+  platform: nopCommerce
+  repo: https://github.com/iyzico/iyzipay-for-nopcommerce
+  official: true

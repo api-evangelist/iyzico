@@ -1,0 +1,31 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.iyzico.com/en/getting-started/preliminaries/limiters
+scope: per-account, per-method
+window: minute
+rate_limits:
+- method: initialize Payment
+  limit: 50
+  window: minute
+- method: retrieve Payment Result
+  limit: 50
+  window: minute
+- method: initialize HPP
+  limit: 100
+  window: minute
+- method: retrieve HPP Result
+  limit: 100
+  window: minute
+- method: refund
+  limit: 50
+  window: minute
+- method: cancel
+  limit: 50
+  window: minute
+exceeded_response:
+  errorCode: 50000
+  errorMessage: Request Limit Exceeded
+  status: failure
+  note: >-
+    Returned when a per-method rate limit is exceeded. HPP = Hosted Payment Page
+    (CheckoutForm / Pay with iyzico).

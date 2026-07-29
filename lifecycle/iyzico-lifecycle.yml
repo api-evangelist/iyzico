@@ -1,0 +1,26 @@
+generated: '2026-07-19'
+method: searched
+source: >-
+  https://docs.iyzico.com/en/getting-started/preliminaries/authentication/hmacsha256-auth ,
+  https://docs.iyzico.com/en/advanced/webhook , https://iyzico.statuspage.io
+versioning:
+  auth_scheme: IYZWSv2 (current); IYZWS/SHA1 (v1, superseded)
+  api_reference: 'API Reference is published as "Beta"'
+  docs: https://docs.iyzico.com/en/getting-started/preliminaries/api-reference-beta
+deprecation:
+  policy_url: https://docs.iyzico.com/en/advanced/webhook
+  sunset_header: false
+  deprecated:
+  - item: X-Iyz-Signature (webhook signature v1)
+    status: no longer supported
+    replacement: X-IYZ-SIGNATURE-V3
+  - item: X-Iyz-Signature-V2 (webhook signature v2)
+    status: no longer supported
+    replacement: X-IYZ-SIGNATURE-V3
+  - item: IYZWS SHA1 authorization
+    status: superseded
+    replacement: IYZWSv2 (HMACSHA256)
+status_page: https://iyzico.statuspage.io
+support:
+  email: entegrasyon@iyzico.com
+  help_center: https://www.iyzico.com/en/support/help-center

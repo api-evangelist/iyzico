@@ -1,0 +1,55 @@
+generated: '2026-07-19'
+method: derived
+status: candidate
+source: >-
+  https://docs.iyzico.com/en/getting-started/preliminaries/api-reference-beta —
+  no official hosted MCP server was found; this is a candidate tool list derived
+  from the documented iyzico Payment API operations. No machine-readable OpenAPI
+  was harvested, so source_operation references point at the docs.
+server:
+  name: iyzico
+  transport: http
+  url: null
+tools:
+- name: check_bin
+  description: Look up BIN / installment info for a card number prefix
+  source_operation: docs/api-reference-beta/installment-and-bin-service
+- name: create_payment_non3ds
+  description: Create a direct (NON-3DS) card payment
+  source_operation: docs/payment-methods/api/non-3ds/create-payment
+- name: initialize_payment_3ds
+  description: Initialize a 3D Secure payment
+  source_operation: docs/payment-methods/api/3ds
+- name: create_3ds_payment
+  description: Complete a 3D Secure payment after callback
+  source_operation: docs/payment-methods/api/3ds
+- name: retrieve_payment
+  description: Retrieve a payment result by paymentId or token
+  source_operation: docs/payment-methods/api/non-3ds/retrieve
+- name: initialize_checkout_form
+  description: Initialize a hosted CheckoutForm and obtain a token
+  source_operation: docs/payment-methods/checkoutform
+- name: retrieve_checkout_form
+  description: Retrieve a CheckoutForm result by token
+  source_operation: docs/payment-methods/checkoutform
+- name: refund_payment
+  description: Refund a payment transaction
+  source_operation: docs/api-reference-beta/refund-and-cancel
+- name: cancel_payment
+  description: Cancel (void) a payment
+  source_operation: docs/api-reference-beta/refund-and-cancel
+- name: create_submerchant
+  description: Create a marketplace submerchant
+  source_operation: docs/api-reference-beta/marketplace/submerchant
+- name: create_marketplace_payment
+  description: Create a marketplace payment with submerchant breakdowns
+  source_operation: docs/api-reference-beta/marketplace/marketplace-payment
+- name: approve_marketplace_item
+  description: Approve a marketplace transaction breakdown for payout
+  source_operation: docs/api-reference-beta/marketplace/approve
+- name: store_card
+  description: Store (tokenize) a card for a cardUserKey
+  source_operation: docs/api-reference-beta/card-storage
+- name: create_subscription
+  description: Initialize a subscription against a pricing plan
+  source_operation: docs/api-reference-beta/subscription/subscription/initialize-subscription

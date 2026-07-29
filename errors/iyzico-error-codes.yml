@@ -1,0 +1,45 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.iyzico.com/en/add-ons/error-codes
+format: iyzico-json
+envelope:
+  fields: [status, errorCode, errorMessage, locale]
+  note: >-
+    iyzico returns a flat JSON error envelope (not RFC 9457 problem+json). status
+    is "failure" on error; errorCode is a numeric code; errorMessage is a human
+    string; locale echoes the request locale. The full published registry lists
+    ~90+ codes across validation (1-27), marketplace/submerchant (2000-2030),
+    card-storage (3000-3013), payment (5000-5111) and system/limit (50000) ranges.
+    A representative sample is captured below (retryable = "can be retried after
+    correcting input").
+error_codes:
+- {code: 1, message: System error occurred, retryable: true, area: system}
+- {code: 3, message: Email is mandatory, retryable: true, area: validation}
+- {code: 5, message: Email was sent in an incorrect format, retryable: true, area: validation}
+- {code: 8, message: Identity number is mandatory, retryable: true, area: validation}
+- {code: 11, message: Invalid request, retryable: true, area: validation}
+- {code: 12, message: Invalid card number, retryable: true, area: validation, cause: Card number failed the Luhn check}
+- {code: 13, message: Invalid expiration month, retryable: true, area: validation}
+- {code: 14, message: Invalid expiration year, retryable: true, area: validation}
+- {code: 15, message: Invalid CVC, retryable: true, area: validation}
+- {code: 16, message: Cardholder name is mandatory, retryable: true, area: validation}
+- {code: 23, message: Callback URL is mandatory, retryable: true, area: validation, cause: Missing callbackUrl on CheckoutForm request}
+- {code: 25, message: GSM number is mandatory, retryable: true, area: validation}
+- {code: 2000, message: This service is only available for marketplace customers, retryable: true, area: marketplace}
+- {code: 2001, message: Sub merchant is not for ID, retryable: true, area: marketplace}
+- {code: 2003, message: subMerchantKey is mandatory, retryable: true, area: marketplace}
+- {code: 2005, message: IBAN is mandatory, retryable: true, area: marketplace}
+- {code: 2030, message: Iban is invalid, retryable: true, area: marketplace}
+- {code: 3001, message: cardUserKey is a mandatory parameter, retryable: true, area: card-storage}
+- {code: 3005, message: cardUserKey is not found, retryable: true, area: card-storage}
+- {code: 3006, message: cardToken is not found, retryable: true, area: card-storage}
+- {code: 3007, message: Card storage feature is not defined, retryable: true, area: card-storage, cause: Card storage add-on not enabled on account}
+- {code: 5001, message: paymentTxId is a mandatory parameter, retryable: true, area: payment}
+- {code: 5002, message: paymentId is a mandatory parameter, retryable: true, area: payment, cause: Missing paymentId in CreateThreedsPayment}
+- {code: 5005, message: price should be more than zero, retryable: true, area: payment}
+- {code: 5006, message: binNumber is a mandatory parameter, retryable: true, area: payment}
+- {code: 5008, message: price should not be equal or more than 100000, retryable: true, area: payment, cause: Account payment limit; contact support to raise}
+- {code: 5062, message: Total item price must be equal to price, retryable: true, area: payment}
+- {code: 5077, message: subMerchantKey is a mandatory parameter for each product payment transaction, retryable: true, area: marketplace}
+- {code: 5111, message: CardUserKey must be sent with cardToken, retryable: true, area: payment}
+- {code: 50000, message: Request Limit Exceeded, retryable: true, area: rate-limit, cause: Per-method rate limit exceeded (see rate-limits/iyzico-rate-limits.yml)}

@@ -1,0 +1,31 @@
+generated: '2026-07-19'
+method: derived
+source: >-
+  Derived from the published iyzico documentation surface (authentication, 3DS
+  payment methods, error codes, webhooks). No machine-readable OpenAPI was
+  harvested; conformance is asserted from documented behavior only.
+standards:
+- id: 3d-secure
+  conforms: true
+  evidence: 'Documented NON-3DS and 3D Secure (3DS) payment methods with mdStatus outcomes'
+- id: hmac-request-signing
+  conforms: true
+  evidence: 'IYZWSv2 authorization signs each request with HMACSHA256 (authentication docs)'
+- id: pci-dss
+  conforms: unknown
+  evidence: >-
+    iyzico is a licensed payment institution offering card storage/tokenization and
+    hosted card capture, which requires PCI DSS; no public certificate page URL was
+    located during this pass, so not asserted true.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: 'Errors use a flat iyzico JSON envelope (status/errorCode/errorMessage/locale), not application/problem+json'
+- id: oauth2
+  conforms: false
+  evidence: 'Auth is a custom HMAC scheme (IYZWSv2), not OAuth 2.0'
+- id: idempotency-keys
+  conforms: false
+  evidence: 'Provider states services are designed non-idempotent; correlation via conversationId/paymentId instead'
+- id: webhook-signature-verification
+  conforms: true
+  evidence: 'X-IYZ-SIGNATURE-V3 HMACSHA256 signature over ordered event fields'

@@ -1,22 +1,164 @@
 aid: iyzico
 name: Iyzico
-description: Iyzico is a company surfaced as a portfolio company of speedinvest and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  iyzico is a Turkish payment service provider (part of PayU / Prosus) that gives
+  online businesses a single API and hosted payment surface to accept cards and
+  alternative payment methods across Turkey and cross-border. Its developer
+  platform (docs.iyzico.com, api.iyzipay.com) covers NON-3DS and 3D Secure card
+  payments, the hosted CheckoutForm and Pay with iyzico flows, iyzico Link,
+  subscriptions/recurring billing, a marketplace/submerchant model with payouts,
+  card storage/tokenization, installment and BIN services, reporting, and
+  server-to-server webhooks. Authentication uses an HMACSHA256-signed
+  IYZWSv2 scheme with an apiKey/secretKey pair, and a full sandbox
+  (sandbox-api.iyzipay.com) with published test cards mirrors production. First
+  party SDKs are published for PHP, Python, Node.js, Java, Ruby and .NET plus
+  e-commerce plugins (WooCommerce, Magento 2, PrestaShop, OpenCart).
 url: https://raw.githubusercontent.com/api-evangelist/iyzico/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://www.iyzico.com/en/
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - speedinvest
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profiled
+x-tier-reason: enrichment-pipeline
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
-apis: []
+- Payments
+- FinTech
+- Payment Gateway
+- Card Payments
+- Checkout
+- Subscriptions
+- Marketplace
+- Turkey
+- 3D Secure
+apis:
+- name: iyzico Payment API
+  description: >-
+    REST API for accepting card payments (NON-3DS and 3D Secure), hosted
+    CheckoutForm and Pay with iyzico flows, iyzico Link, subscriptions,
+    marketplace submerchant payments and payouts, card storage/tokenization,
+    installment and BIN lookup, refunds/cancels, reporting and webhooks.
+    Authentication is an HMACSHA256-signed IYZWSv2 header using an
+    apiKey + secretKey pair.
+  humanURL: https://docs.iyzico.com/en/
+  baseURL: https://api.iyzipay.com
+  tags:
+  - Payments
+  - Card Payments
+  - 3D Secure
+  - Subscriptions
+  - Marketplace
+  properties:
+  - type: Documentation
+    url: https://docs.iyzico.com/en/
+  - type: APIReference
+    url: https://docs.iyzico.com/en/getting-started/preliminaries/api-reference-beta
+  - type: GettingStarted
+    url: https://docs.iyzico.com/en/getting-started/welcome
+  - type: Authentication
+    url: authentication/iyzico-authentication.yml
+  - type: Sandbox
+    url: sandbox/iyzico-sandbox.yml
+  - type: RateLimits
+    url: rate-limits/iyzico-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/iyzico-error-codes.yml
+  - type: DeclineCodes
+    url: errors/iyzico-decline-codes.yml
+  - type: Webhooks
+    url: asyncapi/iyzico-webhooks.yml
+  - type: Conventions
+    url: conventions/iyzico-conventions.yml
+  - type: Components
+    url: components/iyzico-components.yml
+  - type: MCPServer
+    url: mcp/iyzico-mcp.yml
+common:
+- type: DeveloperPortal
+  url: https://docs.iyzico.com/
+- type: Documentation
+  url: https://docs.iyzico.com/en/
+- type: APIReference
+  url: https://docs.iyzico.com/en/getting-started/preliminaries/api-reference-beta
+- type: GettingStarted
+  url: https://docs.iyzico.com/en/getting-started/welcome
+- type: Website
+  url: https://www.iyzico.com/en/
+- type: Blog
+  url: https://www.iyzico.com/en/blog
+- type: Support
+  url: https://www.iyzico.com/en/support/help-center
+- type: HelpCenter
+  url: https://www.iyzico.com/en/support/contact-us
+- type: GitHubOrganization
+  url: https://github.com/iyzico
+- type: SignUp
+  url: https://merchant.iyzipay.com/auth/register
+- type: Login
+  url: https://merchant.iyzipay.com/auth/login
+- type: TermsOfService
+  url: https://www.iyzico.com/en/general-conditions
+- type: PrivacyPolicy
+  url: https://www.iyzico.com/en/privacy-policy
+- type: Postman
+  url: https://www.postman.com/iyzico/iyzico/overview
+- type: StatusPage
+  url: https://iyzico.statuspage.io
+- type: LLMsTxt
+  url: llms/iyzico-llms.txt
+- type: Packages
+  url: packages/iyzico-packages.yml
+- type: SDKs
+  url: packages/iyzico-packages.yml
+- type: Authentication
+  url: authentication/iyzico-authentication.yml
+- type: Sandbox
+  url: sandbox/iyzico-sandbox.yml
+- type: RateLimits
+  url: rate-limits/iyzico-rate-limits.yml
+- type: ErrorCatalog
+  url: errors/iyzico-error-codes.yml
+- type: DeclineCodes
+  url: errors/iyzico-decline-codes.yml
+- type: Webhooks
+  url: asyncapi/iyzico-webhooks.yml
+- type: Conventions
+  url: conventions/iyzico-conventions.yml
+- type: Components
+  url: components/iyzico-components.yml
+- type: Conformance
+  url: conformance/iyzico-conformance.yml
+- type: Lifecycle
+  url: lifecycle/iyzico-lifecycle.yml
+- type: Deprecation
+  url: lifecycle/iyzico-lifecycle.yml
+- type: MCPServer
+  url: mcp/iyzico-mcp.yml
+- type: DomainSecurity
+  url: security/iyzico-domain-security.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

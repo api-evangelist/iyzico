@@ -1,0 +1,32 @@
+generated: '2026-07-19'
+method: searched
+source: >-
+  https://docs.iyzico.com/en/getting-started/preliminaries/api-reference-beta/payment-methods ,
+  https://docs.iyzico.com/en/payment-methods/checkoutform ,
+  https://docs.iyzico.com/en/payment-methods/paywithiyzico
+note: >-
+  Client-side / hosted payment surfaces iyzico provides so merchants do not render
+  raw card fields themselves. Distinct from the server-side SDKs in
+  packages/iyzico-packages.yml.
+components:
+- family: CheckoutForm (CF)
+  kind: hosted/embedded payment form
+  description: >-
+    iyzico's drop-in checkout. Initialized server-side to obtain a token, then
+    rendered on the merchant page either as a popup or an inline/responsive form
+    via iyzico's JavaScript, collecting card data on iyzico's PCI scope. Result
+    is retrieved with the token.
+  docs: https://docs.iyzico.com/en/payment-methods/checkoutform
+- family: Pay with iyzico (PWI)
+  kind: hosted redirect / wallet
+  description: >-
+    Hosted payment page where the buyer completes payment on iyzico, including
+    saved-card wallet ("PWI token") flows. Merchant initializes and retrieves by
+    token.
+  docs: https://docs.iyzico.com/en/payment-methods/paywithiyzico
+- family: iyzico Link
+  kind: hosted payment link
+  description: >-
+    Shareable hosted payment link surface for collecting payments without a full
+    integration.
+  docs: https://docs.iyzico.com/en/getting-started/preliminaries/api-reference-beta/iyzico-link

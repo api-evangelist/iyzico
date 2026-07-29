@@ -1,0 +1,48 @@
+generated: '2026-07-19'
+method: searched
+source: >-
+  https://docs.iyzico.com/ (Preliminaries: authentication, idempotency, limiters,
+  live-vs-sandbox, error codes, webhook)
+authentication:
+  style: HMACSHA256-signed header (IYZWSv2)
+  header: Authorization
+  ref: authentication/iyzico-authentication.yml
+idempotency:
+  supported: false
+  note: >-
+    iyzico explicitly states the majority of its services are designed
+    NON-idempotent. There is no idempotency-key header. Merchants achieve safe
+    reconciliation via correlation identifiers rather than server-side idempotent
+    replay.
+  correlation_fields:
+    merchant_generated:
+    - {field: conversationId, purpose: Match request/response pairs (order/basket numbers, reconciliation)}
+    - {field: basketId, purpose: Basket-level correlation}
+    iyzico_generated:
+    - {field: token, purpose: Unique per hosted-payment-page request; required to retrieve the result}
+    - {field: paymentId, purpose: Payment id merchants must persist; required for cancel and reconciliation}
+  ref: https://docs.iyzico.com/en/getting-started/preliminaries/idempotency
+request_format:
+  content_type: application/json
+  locale: '"locale" field on requests (tr/en) controls message language'
+error_envelope:
+  format: iyzico-json  # not RFC 9457
+  fields: [status, errorCode, errorMessage, errorGroup, locale]
+  example:
+    status: failure
+    errorCode: 50000
+    errorMessage: Request Limit Exceeded
+    locale: en
+  ref: errors/iyzico-error-codes.yml
+rate_limiting:
+  signaling: Error response (errorCode 50000, "Request Limit Exceeded") on overage; no documented rate-limit headers
+  ref: rate-limits/iyzico-rate-limits.yml
+webhooks:
+  supported: true
+  transport: server-to-server HTTP POST
+  retry: Every 15 minutes until a 2xx is returned, stops after 3 attempts; first notification 10-15s after payment
+  signature_header: X-IYZ-SIGNATURE-V3
+  ref: asyncapi/iyzico-webhooks.yml
+environments:
+  ref: sandbox/iyzico-sandbox.yml
+  separation: Live vs sandbox differ only by base URL (api.iyzipay.com vs sandbox-api.iyzipay.com) and sandbox- credential prefix

@@ -1,0 +1,31 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.iyzico.com/en/add-ons/test-cards
+note: >-
+  iyzico does not publish a numeric bank decline-code table; instead it publishes
+  a set of sandbox "error generator" test cards, each of which forces a specific
+  card-decline / authorization outcome. These are the buyer-facing decline
+  scenarios the gateway surfaces from the issuer. Complements
+  errors/iyzico-error-codes.yml (API-level validation/system errors). The decline
+  reason appears on the payment result; buyers typically see a generic failure
+  message while the merchant sees the specific reason.
+envelope_field: errorMessage / mdStatus
+decline_scenarios:
+- {trigger_card: '4111111111111129', meaning: Not sufficient funds, action: Ask buyer to use another card or top up}
+- {trigger_card: '4129111111111111', meaning: Do not honour, action: Issuer declined; buyer should contact bank or use another card}
+- {trigger_card: '4128111111111112', meaning: Invalid transaction, action: Retry or use another card}
+- {trigger_card: '4127111111111113', meaning: Lost card, action: Blocked by issuer; use another card, masked to buyer}
+- {trigger_card: '4126111111111114', meaning: Stolen card, action: Blocked by issuer; use another card, masked to buyer}
+- {trigger_card: '4125111111111115', meaning: Expired card, action: Ask buyer to use a non-expired card}
+- {trigger_card: '4124111111111116', meaning: Invalid cvc2, action: Re-enter CVC / use another card}
+- {trigger_card: '4123111111111117', meaning: Not permitted to card holder, action: Issuer restriction; use another card}
+- {trigger_card: '4122111111111118', meaning: Not permitted to terminal, action: Merchant/terminal restriction; contact support}
+- {trigger_card: '4121111111111119', meaning: Fraud suspect, action: Blocked for suspected fraud, masked to buyer}
+- {trigger_card: '4120111111111110', meaning: Pickup card, action: Issuer flagged card for pickup, masked to buyer}
+- {trigger_card: '4130111111111118', meaning: General error, action: Generic issuer decline; retry or use another card}
+- {trigger_card: '4131111111111117', meaning: Success but mdStatus is 0, action: 3DS status 0 (not authenticated)}
+- {trigger_card: '4141111111111115', meaning: Success but mdStatus is 4, action: 3DS status 4 (attempted authentication)}
+- {trigger_card: '4151111111111112', meaning: 3dsecure initialize failed, action: 3DS initialization failure}
+- {trigger_card: '5406670000000009', meaning: Success but cannot be cancelled/refunded/post-authed, action: Terminal capability limitation}
+masked_to_buyer:
+  note: Lost card, Stolen card, Fraud suspect and Pickup card outcomes are masked to buyers as generic failures for security.
