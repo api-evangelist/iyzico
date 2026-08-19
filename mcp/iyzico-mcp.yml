@@ -1,11 +1,9 @@
 generated: '2026-07-19'
 method: derived
 status: candidate
-source: >-
-  https://docs.iyzico.com/en/getting-started/preliminaries/api-reference-beta —
-  no official hosted MCP server was found; this is a candidate tool list derived
-  from the documented iyzico Payment API operations. No machine-readable OpenAPI
-  was harvested, so source_operation references point at the docs.
+source: https://docs.iyzico.com/en/getting-started/preliminaries/api-reference-beta — no official hosted
+  MCP server was found; this is a candidate tool list derived from the documented iyzico Payment API operations.
+  No machine-readable OpenAPI was harvested, so source_operation references point at the docs.
 server:
   name: iyzico
   transport: http
@@ -53,3 +51,9 @@ tools:
 - name: create_subscription
   description: Initialize a subscription against a pricing plan
   source_operation: docs/api-reference-beta/subscription/subscription/initialize-subscription
+deployment:
+  mode: none
+  verified: derived
+  tools: 14
+  checked: '2026-08-12'
+  source: catalog MCP census
