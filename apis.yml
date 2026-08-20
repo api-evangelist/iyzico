@@ -39,6 +39,17 @@ modified: '2026-07-19'
 tags:
 - Company
 - Payments
+- Fintech
+- Payment Gateway
+- Card Payments
+- Checkout
+- Subscription
+- Marketplace
+- Turkey
+- 3D Secure
+tags_raw:
+- Company
+- Payments
 - FinTech
 - Payment Gateway
 - Card Payments
@@ -59,6 +70,12 @@ apis:
   humanURL: https://docs.iyzico.com/en/
   baseURL: https://api.iyzipay.com
   tags:
+  - Payments
+  - Card Payments
+  - 3D Secure
+  - Subscription
+  - Marketplace
+  tags_raw:
   - Payments
   - Card Payments
   - 3D Secure
