@@ -115,8 +115,9 @@ apis:
     url: conventions/iyzico-conventions.yml
   - type: Components
     url: components/iyzico-components.yml
-  - type: MCPServer
+  - type: X-MCPServerCandidate
     url: mcp/iyzico-mcp.yml
+    note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
 common:
 - type: DeveloperPortal
   url: https://docs.iyzico.com/
@@ -176,8 +177,9 @@ common:
   url: lifecycle/iyzico-lifecycle.yml
 - type: Deprecation
   url: lifecycle/iyzico-lifecycle.yml
-- type: MCPServer
+- type: X-MCPServerCandidate
   url: mcp/iyzico-mcp.yml
+  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
 - type: DomainSecurity
   url: security/iyzico-domain-security.yml
 maintainers:
