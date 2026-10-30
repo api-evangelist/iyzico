@@ -64,6 +64,114 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Iyzico is a company surfaced as a portfolio company of speedinvest and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+iyzico is a Turkish payment service provider (part of PayU / Prosus) that gives online businesses a single API and hosted payment surface to accept cards and alternative payment methods across Turkey and cross-border. Its developer platform (docs.iyzico.com, api.iyzipay.com) covers NON-3DS and 3D Secure card payments, the hosted CheckoutForm and Pay with iyzico flows, iyzico Link, subscriptions/recurring billing, a marketplace/submerchant model with payouts, card storage/tokenization, installment and BIN services, reporting, and server-to-server webhooks. Authentication uses an HMACSHA256-signed IYZWSv2 scheme with an apiKey/secretKey pair, and a full sandbox (sandbox-api.iyzipay.com) with published test cards mirrors production. First party SDKs are published for PHP, Python, Node.js, Java, Ruby and .NET plus e-commerce plugins (WooCommerce, Magento 2, PrestaShop, OpenCart).
 
-Backed by: speedinvest
+**Areas:** Company · Payments · Fintech · Payment Gateway · Card Payments · Checkout · Subscription · Marketplace · Turkey · 3D Secure
+
+## Iyzico on APIs.io
+
+Everything profiled for Iyzico is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/iyzico/](https://apis.io/providers/iyzico/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [iyzico Payment API](https://apis.io/apis/iyzico/iyzico-payment-api/) — REST API for accepting card payments (NON-3DS and 3D Secure), hosted CheckoutForm and Pay with iyzico flows, iyzico Link, subscriptions, marketplace…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Iyzico Webhooks](https://apis.io/asyncapis/iyzico/iyzico-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [iyzico](https://apis.io/servers/iyzico/iyzico/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Iyzico Authentication](https://apis.io/security/iyzico/iyzico-authentication/)
+- [Iyzico Domain Security](https://apis.io/security/iyzico/iyzico-domain-security/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Iyzico Rate Limits](https://apis.io/rate-limits/iyzico/iyzico-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.iyzico.com/en/)
+- [Documentation](https://docs.iyzico.com/en/)
+- [Getting started](https://docs.iyzico.com/en/getting-started/welcome)
+- [API reference](https://docs.iyzico.com/en/getting-started/preliminaries/api-reference-beta)
+- [Sign up](https://merchant.iyzipay.com/auth/register)
+- [Support](https://www.iyzico.com/en/support/help-center)
+- [Blog](https://www.iyzico.com/en/blog)
+- [Terms of service](https://www.iyzico.com/en/general-conditions)
+- [Privacy policy](https://www.iyzico.com/en/privacy-policy)
+- [GitHub](https://github.com/iyzico)
+- [Status](https://iyzico.statuspage.io)
+
+## API Evangelist rating
+
+**Kin Score 48.8** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 39.0 |
+| Contract governance | 4.5 |
+| Operational transparency | 65.8 |
+| Developer ergonomics | 72.6 |
+| Access clarity | 34.2 |
+
+**Agent readiness 25.2** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | yes |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 27.7** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/iyzico/](https://apis.io/providers/iyzico/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Iyzico: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/iyzico/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
